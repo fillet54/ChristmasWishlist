@@ -9,12 +9,12 @@
     @foreach (var item in Model.Select((value, index) => new { value, index }))
     {
         <section class="feature @(item.index % 2 == 0 ? "left" : "right")">
-            <a href="#" class="image"><img src="Content/@item.value.ImageUrl" alt="" /></a>
+            <a href="#" class="image"><img src="/Content/@item.value.ImageUrl" alt="" /></a>
             <div class="content">
                 <h3><a href="@item.value.Url" target="_blank">@item.value.Title</a></h3>
                 <p> @item.value.Description
                     <br />
-                    quantity: <i class="icon fa-gift"></i>
+                    Quantity: @for (var i = 0; i < item.value.Quantity; i++) { <i class="icon fa-gift"></i> }
                 </p>
             </div>
 
